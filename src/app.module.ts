@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { join } from 'path';
+import { PostsModule } from './posts/posts.module';
 
 const entitiesPaths = [join(__dirname, '**', '*.entity.{js,ts}')];
 
@@ -17,7 +18,9 @@ const entitiesPaths = [join(__dirname, '**', '*.entity.{js,ts}')];
       database: 'blog',
       entities: entitiesPaths,
       synchronize: true,
+      autoLoadEntities: true,
     }),
+    PostsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
