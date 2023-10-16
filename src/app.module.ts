@@ -4,6 +4,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { join } from 'path';
 import { PostsModule } from './posts/posts.module';
+import { UserModule } from './user/user.module';
 
 const entitiesPaths = [join(__dirname, '**', '*.entity.{js,ts}')];
 
@@ -21,6 +22,7 @@ const entitiesPaths = [join(__dirname, '**', '*.entity.{js,ts}')];
       autoLoadEntities: true,
     }),
     PostsModule,
+    UserModule,
   ],
   controllers: [AppController],
   providers: [AppService],
